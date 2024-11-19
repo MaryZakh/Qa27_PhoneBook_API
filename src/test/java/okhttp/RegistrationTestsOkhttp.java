@@ -12,12 +12,18 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class RegistrationTestsOkhttp {
+
     Gson gson = new Gson();
+
     public static final MediaType JSON = MediaType.get("application/json;charset=utf-8");
     OkHttpClient client = new OkHttpClient();
+
+
     @Test
     public void registrationSuccess() throws IOException {
+
         int i = (int)(System.currentTimeMillis()/1000)%3600;
+
         AuthRequestDto auth = AuthRequestDto.builder().username("mara"+i+"@gmail.com").password("Mmar123456$").build();
 
         RequestBody requestBody = RequestBody.create(gson.toJson(auth),JSON);
